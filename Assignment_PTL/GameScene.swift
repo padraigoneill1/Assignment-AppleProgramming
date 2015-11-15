@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene {
     var Circle = SKSpriteNode()
@@ -16,22 +17,33 @@ class GameScene: SKScene {
     var Path = UIBezierPath()
     
     var gameStarted = Bool()
-    
     var movingClockwise = Bool()
-    
-    
-     var intersected = false
+    var intersected = false
     
     var LevelLabel = UILabel()
     
     var currentLevel = Int()
-    
     var currentScore = Int()
-    
     var highLevel = Int()
+    
+    
+    //  Sound From https://www.freesound.org/people/ZvinbergsA/sounds/273143/
+    var ButtonAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("beep", ofType:"wav")!))
+    
+    //  Sound From https://www.freesound.org/people/mrmacross/sounds/186896/
+    var FailAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fail", ofType:"mp3")!))
+    
+    
+    //  Sound From https://www.freesound.org/people/joshuaempyre/sounds/251461/
+    var BackgroundAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType:"wav")!))
+    
+    //  Sound From https://www.freesound.org/people/fins/sounds/171671/
+    var WinAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("win", ofType:"wav")!))
+    
     
     override func didMoveToView(view: SKView) {
         loadView()
+        
         
         let Defaults = NSUserDefaults.standardUserDefaults()
         if Defaults.integerForKey("HighLevel") != 0{
@@ -47,9 +59,10 @@ class GameScene: SKScene {
     }
     
     func loadView() {
-        
+        BackgroundAudioPlayer.numberOfLoops = -1
+        BackgroundAudioPlayer.play()
         movingClockwise = true
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor.yellowColor()
         Circle = SKSpriteNode(imageNamed: "Circle")
         Circle.size = CGSize(width: 300, height: 300)
         Circle.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
@@ -152,12 +165,14 @@ class GameScene: SKScene {
     
     func DotTouched(){
         if intersected == true{
+            ButtonAudioPlayer.play()
             Dot.removeFromParent()
             AddDot()
             intersected = false
-            
             currentScore--
             LevelLabel.text = "\(currentScore)"
+            
+            
             if currentScore <= 0{
                 nextLevel()
             }
@@ -170,9 +185,10 @@ class GameScene: SKScene {
     }
     
     func died(){
+        FailAudioPlayer.play()
         self.removeAllChildren()
         let action1 = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.2)
-        let action2 = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.2)
+        let action2 = SKAction.colorizeWithColor(UIColor.yellowColor(), colorBlendFactor: 1.0, duration: 0.2)
         self.scene?.runAction(SKAction.sequence([action1,action2]))
         intersected = false
         gameStarted = false
@@ -183,9 +199,10 @@ class GameScene: SKScene {
     }
     
     func won(){
+        WinAudioPlayer.play()
         self.removeAllChildren()
         let action1 = SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 1.0, duration: 0.2)
-        let action2 = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.2)
+        let action2 = SKAction.colorizeWithColor(UIColor.yellowColor(), colorBlendFactor: 1.0, duration: 0.2)
         self.scene?.runAction(SKAction.sequence([action1,action2]))
         intersected = false
         gameStarted = false

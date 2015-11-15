@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4851921BF9092B004B0EDC /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851911BF9092B004B0EDC /* beep.wav */; };
+		0F4851951BF91055004B0EDC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4851941BF91055004B0EDC /* AVFoundation.framework */; };
+		0F4851971BF91685004B0EDC /* fail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851961BF91685004B0EDC /* fail.mp3 */; };
+		0F4851991BF91DF4004B0EDC /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */; };
+		0F48519B1BF9218C004B0EDC /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F48519A1BF9218C004B0EDC /* win.wav */; };
 		0F6072291BF8B2870088EDA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6072281BF8B2870088EDA4 /* AppDelegate.swift */; };
 		0F60722B1BF8B2870088EDA4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F60722A1BF8B2870088EDA4 /* GameScene.sks */; };
 		0F60722D1BF8B2870088EDA4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F60722C1BF8B2870088EDA4 /* GameScene.swift */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F4851911BF9092B004B0EDC /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		0F4851941BF91055004B0EDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0F4851961BF91685004B0EDC /* fail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fail.mp3; sourceTree = "<group>"; };
+		0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
+		0F48519A1BF9218C004B0EDC /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		0F6072251BF8B2870088EDA4 /* Assignment_PTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_PTL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6072281BF8B2870088EDA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F60722A1BF8B2870088EDA4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -35,15 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4851951BF91055004B0EDC /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4851931BF90937004B0EDC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0F48519A1BF9218C004B0EDC /* win.wav */,
+				0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */,
+				0F4851961BF91685004B0EDC /* fail.mp3 */,
+				0F4851911BF9092B004B0EDC /* beep.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		0F60721C1BF8B2870088EDA4 = {
 			isa = PBXGroup;
 			children = (
+				0F4851941BF91055004B0EDC /* AVFoundation.framework */,
 				0F6072271BF8B2870088EDA4 /* Assignment_PTL */,
 				0F6072261BF8B2870088EDA4 /* Products */,
 			);
@@ -60,6 +83,7 @@
 		0F6072271BF8B2870088EDA4 /* Assignment_PTL */ = {
 			isa = PBXGroup;
 			children = (
+				0F4851931BF90937004B0EDC /* Sounds */,
 				0F6072281BF8B2870088EDA4 /* AppDelegate.swift */,
 				0F60722A1BF8B2870088EDA4 /* GameScene.sks */,
 				0F60722C1BF8B2870088EDA4 /* GameScene.swift */,
@@ -131,10 +155,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4851921BF9092B004B0EDC /* beep.wav in Resources */,
+				0F48519B1BF9218C004B0EDC /* win.wav in Resources */,
 				0F60722B1BF8B2870088EDA4 /* GameScene.sks in Resources */,
+				0F4851971BF91685004B0EDC /* fail.mp3 in Resources */,
 				0F6072371BF8B2870088EDA4 /* LaunchScreen.storyboard in Resources */,
 				0F6072341BF8B2870088EDA4 /* Assets.xcassets in Resources */,
 				0F6072321BF8B2870088EDA4 /* Main.storyboard in Resources */,
+				0F4851991BF91DF4004B0EDC /* backgroundMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +326,7 @@
 				0F60723D1BF8B2870088EDA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
