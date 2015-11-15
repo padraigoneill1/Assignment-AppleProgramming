@@ -2,7 +2,7 @@
 //  GameViewController.swift
 //  Assignment_PTL
 //
-//  Created by p on 15/11/2015.
+//  Created by padraigoneill on 15/11/2015.
 //  Copyright (c) 2015 WIT. All rights reserved.
 //
 
