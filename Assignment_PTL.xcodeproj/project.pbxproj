@@ -20,6 +20,7 @@
 		0F6072341BF8B2870088EDA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6072331BF8B2870088EDA4 /* Assets.xcassets */; };
 		0F6072371BF8B2870088EDA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F6072351BF8B2870088EDA4 /* LaunchScreen.storyboard */; };
 		0F60723F1BF8C5140088EDA4 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F60723E1BF8C5140088EDA4 /* CGFloatExtension.swift */; };
+		0F628F481C08A558000AAF9D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F628F471C08A558000AAF9D /* MenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0F6072361BF8B2870088EDA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F6072381BF8B2870088EDA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F60723E1BF8C5140088EDA4 /* CGFloatExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
+		0F628F471C08A558000AAF9D /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = ../MenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				0F60722C1BF8B2870088EDA4 /* GameScene.swift */,
 				0F60723E1BF8C5140088EDA4 /* CGFloatExtension.swift */,
 				0F60722E1BF8B2870088EDA4 /* GameViewController.swift */,
+				0F628F471C08A558000AAF9D /* MenuScene.swift */,
 				0F6072301BF8B2870088EDA4 /* Main.storyboard */,
 				0F6072331BF8B2870088EDA4 /* Assets.xcassets */,
 				0F6072351BF8B2870088EDA4 /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 			files = (
 				0F60722D1BF8B2870088EDA4 /* GameScene.swift in Sources */,
 				0F60722F1BF8B2870088EDA4 /* GameViewController.swift in Sources */,
+				0F628F481C08A558000AAF9D /* MenuScene.swift in Sources */,
 				0F60723F1BF8C5140088EDA4 /* CGFloatExtension.swift in Sources */,
 				0F6072291BF8B2870088EDA4 /* AppDelegate.swift in Sources */,
 			);

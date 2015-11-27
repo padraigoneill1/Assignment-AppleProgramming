@@ -147,7 +147,7 @@ class GameScene: SKScene {
         
         let Path = UIBezierPath(arcCenter: CGPoint(x: self.frame.width / 2, y: self.frame.height/2),radius: 120, startAngle: rad, endAngle: rad + CGFloat(M_PI * 4), clockwise: true)
         
-        let follow = SKAction.followPath(Path.CGPath, asOffset: false, orientToPath: true, speed: 200)
+        let follow = SKAction.followPath(Path.CGPath, asOffset: false, orientToPath: true, speed: 300)
         Person.runAction(SKAction.repeatActionForever(follow.reversedAction()))
     }
     
@@ -159,7 +159,7 @@ class GameScene: SKScene {
         
         let Path = UIBezierPath(arcCenter: CGPoint(x: self.frame.width / 2, y: self.frame.height/2),radius: 120, startAngle: rad, endAngle: rad + CGFloat(M_PI * 4), clockwise: true)
         
-        let follow = SKAction.followPath(Path.CGPath, asOffset: false, orientToPath: true, speed: 200)
+        let follow = SKAction.followPath(Path.CGPath, asOffset: false, orientToPath: true, speed: 300)
         Person.runAction(SKAction.repeatActionForever(follow))
     }
     
@@ -176,7 +176,6 @@ class GameScene: SKScene {
             if currentScore <= 0{
                 nextLevel()
             }
-            
         
         }
         else if intersected == false{
