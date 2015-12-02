@@ -9,16 +9,27 @@
 import UIKit
 import Foundation
 import SpriteKit
+import AVFoundation
 
 var playButton = SKSpriteNode()
+var musicSettings = SKSpriteNode()
+var muteTexture = SKTexture(imageNamed: "MuteMusic")
+var playTexture = SKTexture(imageNamed: "PlayMusic")
 
+// Mute/Play icons from wikimedia
+//  Sound From https://www.freesound.org/people/joshuaempyre/sounds/251461/
+var BackgroundAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType:"wav")!))
 
-
-//let playButtonTex = SKTexture(imageNamed: "play")
 class MenuScene: SKScene {
        var playLabel :SKLabelNode?
     
     override func didMoveToView(view: SKView) {
+        BackgroundAudioPlayer.numberOfLoops = -1
+        BackgroundAudioPlayer.play()
+        if NSUserDefaults.standardUserDefaults().boolForKey("Muted") == true {
+            BackgroundAudioPlayer.stop()
+        }
+
         backgroundColor = SKColor.yellowColor()
         NSLog("We have loaded the start screen")
         playButton = SKSpriteNode(imageNamed: "Circle")
@@ -35,7 +46,24 @@ class MenuScene: SKScene {
         playLabel!.verticalAlignmentMode = .Center
         playLabel!.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         self.addChild(playLabel!)
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let width = screenSize.size.width
+        let height = screenSize.size.height
+        
+        musicSettings.texture = playTexture
+        musicSettings.position = CGPoint(x:CGRectGetMidX(self.frame)*2-350, y:CGRectGetMidY(self.frame)*2-50)
+        
+        print(height)
+        print(width)
+        print(CGRectGetMidX(self.frame)*2)
+        print(CGRectGetMidY(self.frame)*2)
+        musicSettings.size = CGSize(width: 100, height:100)
+        self.addChild(musicSettings)
 
+
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey:"Muted" )
+        
     }
 
  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -50,11 +78,24 @@ class MenuScene: SKScene {
                     let scene = GameScene(fileNamed:"GameScene")! as GameScene
                     scene.scaleMode = SKSceneScaleMode.AspectFill
                     view.presentScene(scene)
+                    }
+                }
+                else if nodeAtTouch == musicSettings{
+                if musicSettings.texture == playTexture{
+                    musicSettings.texture = muteTexture
+                      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"Muted" )
+                      BackgroundAudioPlayer.stop()
+                }
+                else{
+                    musicSettings.texture = playTexture
+                    NSUserDefaults.standardUserDefaults().setBool(false, forKey:"Muted" )
+                    BackgroundAudioPlayer.play()
                 }
             }
         }
     }
 }
+
         /*
     if let touch = touches.first as? UITouch {
         let pos = touch.locationInNode(self)

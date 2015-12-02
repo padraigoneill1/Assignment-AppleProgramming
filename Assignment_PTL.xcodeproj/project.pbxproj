@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F4851921BF9092B004B0EDC /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851911BF9092B004B0EDC /* beep.wav */; };
+		0F447AF51C0F42A900FB5E4A /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F447AF41C0F42A900FB5E4A /* beep.wav */; };
 		0F4851951BF91055004B0EDC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4851941BF91055004B0EDC /* AVFoundation.framework */; };
 		0F4851971BF91685004B0EDC /* fail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851961BF91685004B0EDC /* fail.mp3 */; };
 		0F4851991BF91DF4004B0EDC /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F4851911BF9092B004B0EDC /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		0F447AF41C0F42A900FB5E4A /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		0F4851941BF91055004B0EDC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0F4851961BF91685004B0EDC /* fail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fail.mp3; sourceTree = "<group>"; };
 		0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 				0F48519A1BF9218C004B0EDC /* win.wav */,
 				0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */,
 				0F4851961BF91685004B0EDC /* fail.mp3 */,
-				0F4851911BF9092B004B0EDC /* beep.wav */,
+				0F447AF41C0F42A900FB5E4A /* beep.wav */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -161,13 +161,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F4851921BF9092B004B0EDC /* beep.wav in Resources */,
 				0F48519B1BF9218C004B0EDC /* win.wav in Resources */,
 				0F60722B1BF8B2870088EDA4 /* GameScene.sks in Resources */,
 				0F4851971BF91685004B0EDC /* fail.mp3 in Resources */,
 				0F6072371BF8B2870088EDA4 /* LaunchScreen.storyboard in Resources */,
 				0F6072341BF8B2870088EDA4 /* Assets.xcassets in Resources */,
 				0F6072321BF8B2870088EDA4 /* Main.storyboard in Resources */,
+				0F447AF51C0F42A900FB5E4A /* beep.wav in Resources */,
 				0FF9858D1C08AC0F00B37150 /* MenuScene.sks in Resources */,
 				0F4851991BF91DF4004B0EDC /* backgroundMusic.wav in Resources */,
 			);

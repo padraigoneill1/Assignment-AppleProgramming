@@ -26,6 +26,10 @@ class GameScene: SKScene {
     var currentScore = Int()
     var highLevel = Int()
     
+    var muted = Bool()
+    
+    //Menu Icon from https://www.iconfinder.com/icons/134216/hamburger_lines_menu_icon
+    
     
     //  Sound From https://www.freesound.org/people/ZvinbergsA/sounds/273143/
     var ButtonAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("beep", ofType:"wav")!))
@@ -44,7 +48,6 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         loadView()
         
-        
         let Defaults = NSUserDefaults.standardUserDefaults()
         if Defaults.integerForKey("HighLevel") != 0{
             highLevel = Defaults.integerForKey("HighLevel") as Int!
@@ -59,8 +62,7 @@ class GameScene: SKScene {
     }
     
     func loadView() {
-        BackgroundAudioPlayer.numberOfLoops = -1
-        BackgroundAudioPlayer.play()
+   
         movingClockwise = true
         backgroundColor = SKColor.yellowColor()
         Circle = SKSpriteNode(imageNamed: "Circle")
@@ -165,7 +167,10 @@ class GameScene: SKScene {
     
     func DotTouched(){
         if intersected == true{
-            ButtonAudioPlayer.play()
+             ButtonAudioPlayer.stop()
+            if NSUserDefaults.standardUserDefaults().boolForKey("Muted") != true {
+                ButtonAudioPlayer.play()
+            }
             Dot.removeFromParent()
             AddDot()
             intersected = false
@@ -184,7 +189,9 @@ class GameScene: SKScene {
     }
     
     func died(){
-        FailAudioPlayer.play()
+        if NSUserDefaults.standardUserDefaults().boolForKey("Muted") != true {
+            FailAudioPlayer.play()
+        }
         self.removeAllChildren()
         let action1 = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.2)
         let action2 = SKAction.colorizeWithColor(UIColor.yellowColor(), colorBlendFactor: 1.0, duration: 0.2)
@@ -198,7 +205,9 @@ class GameScene: SKScene {
     }
     
     func won(){
-        WinAudioPlayer.play()
+        if NSUserDefaults.standardUserDefaults().boolForKey("Muted") != true {
+            WinAudioPlayer.play()
+        }
         self.removeAllChildren()
         let action1 = SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 1.0, duration: 0.2)
         let action2 = SKAction.colorizeWithColor(UIColor.yellowColor(), colorBlendFactor: 1.0, duration: 0.2)
