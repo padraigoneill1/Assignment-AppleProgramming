@@ -16,14 +16,17 @@ var musicSettings = SKSpriteNode()
 var muteTexture = SKTexture(imageNamed: "MuteMusic")
 var playTexture = SKTexture(imageNamed: "PlayMusic")
 
+
 // Mute/Play icons from wikimedia
 //  Sound From https://www.freesound.org/people/joshuaempyre/sounds/251461/
 var BackgroundAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType:"wav")!))
 
 class MenuScene: SKScene {
        var playLabel :SKLabelNode?
+       weak var gameViewController : GameViewController?
     
     override func didMoveToView(view: SKView) {
+       
         BackgroundAudioPlayer.numberOfLoops = -1
         BackgroundAudioPlayer.play()
         if NSUserDefaults.standardUserDefaults().boolForKey("Muted") == true {
@@ -40,24 +43,15 @@ class MenuScene: SKScene {
         
         playLabel = SKLabelNode(fontNamed:"Arial")
         playLabel!.text = "Play"
-        playLabel!.fontColor = SKColor.darkGrayColor()
+        playLabel!.fontColor = SKColor.blackColor()
         playLabel!.fontSize = 60
         playLabel!.horizontalAlignmentMode = .Center;
         playLabel!.verticalAlignmentMode = .Center
         playLabel!.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         self.addChild(playLabel!)
         
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let width = screenSize.size.width
-        let height = screenSize.size.height
-        
         musicSettings.texture = playTexture
         musicSettings.position = CGPoint(x:CGRectGetMidX(self.frame)*2-350, y:CGRectGetMidY(self.frame)*2-50)
-        
-        print(height)
-        print(width)
-        print(CGRectGetMidX(self.frame)*2)
-        print(CGRectGetMidY(self.frame)*2)
         musicSettings.size = CGSize(width: 100, height:100)
         self.addChild(musicSettings)
 
@@ -90,11 +84,11 @@ class MenuScene: SKScene {
                     musicSettings.texture = playTexture
                     NSUserDefaults.standardUserDefaults().setBool(false, forKey:"Muted" )
                     BackgroundAudioPlayer.play()
+                    }
                 }
             }
         }
     }
-}
 
         /*
     if let touch = touches.first as? UITouch {

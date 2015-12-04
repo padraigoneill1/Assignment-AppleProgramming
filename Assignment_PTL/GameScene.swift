@@ -13,6 +13,7 @@ class GameScene: SKScene {
     var Circle = SKSpriteNode()
     var Person = SKSpriteNode()
     var Dot = SKSpriteNode()
+    var MenuButton = SKSpriteNode()
     
     var Path = UIBezierPath()
     
@@ -26,7 +27,7 @@ class GameScene: SKScene {
     var currentScore = Int()
     var highLevel = Int()
     
-    var muted = Bool()
+    
     
     //Menu Icon from https://www.iconfinder.com/icons/134216/hamburger_lines_menu_icon
     
@@ -81,39 +82,63 @@ class GameScene: SKScene {
         LevelLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 100))
         LevelLabel.center = (self.view?.center)!
         LevelLabel.text = "\(currentScore)"
-        LevelLabel.textColor = SKColor.darkGrayColor()
+        LevelLabel.textColor = SKColor.blackColor()
         LevelLabel.textAlignment = NSTextAlignment.Center
         LevelLabel.font = UIFont.systemFontOfSize(60)
         self.view?.addSubview(LevelLabel)
         
-    }
+        MenuButton = SKSpriteNode(imageNamed: "MenuButton")
+        MenuButton.position = CGPoint(x:CGRectGetMidX(self.frame)-175, y:CGRectGetMidY(self.frame)*2-40)
+        MenuButton.size = CGSize(width: 85, height:85)
+        self.addChild(MenuButton)
+        
+}
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if gameStarted == false {
-            moveClockWise()
-            movingClockwise = true
-            gameStarted = true
-                   }
-        else if gameStarted == true {
-            
-            if movingClockwise == true{
-                moveCounterClockWise()
-                movingClockwise = false
-                
-            }else if movingClockwise == false{
-                moveClockWise()
-                movingClockwise = true
-                
-            }
-            DotTouched()
-        }
-        
+        self.menuHelper(touches)
     }
+    
+    func menuHelper(touches: NSSet){
+        for touch in touches{
+            let nodeAtTouch = self.nodeAtPoint(touch.locationInNode(self))
+            if nodeAtTouch == MenuButton && gameStarted == false {
+                if let view = view {
+                    let scene = MenuScene(fileNamed:"MenuScene")! as MenuScene
+                    scene.scaleMode = SKSceneScaleMode.AspectFill
+                    view.presentScene(scene)
+                }
+            }
+            else {
+                if gameStarted == false {
+                    moveClockWise()
+                    movingClockwise = true
+                    gameStarted = true
+                }
+                else if gameStarted == true {
+                    
+                    if movingClockwise == true{
+                        moveCounterClockWise()
+                        movingClockwise = false
+                        
+                    }else if movingClockwise == false{
+                        moveClockWise()
+                        movingClockwise = true
+                        
+                    }
+                    DotTouched()
+                }
+               
+            }
+        }
+    }
+
+
+
     
     func AddDot(){
         
         Dot = SKSpriteNode(imageNamed: "Dot")
-        Dot.size = CGSize(width: 30, height: 30)
+        Dot.size = CGSize(width: 45, height: 45)
         Dot.zPosition = 1.0
         
         let dx = Person.position.x - self.frame.width/2
