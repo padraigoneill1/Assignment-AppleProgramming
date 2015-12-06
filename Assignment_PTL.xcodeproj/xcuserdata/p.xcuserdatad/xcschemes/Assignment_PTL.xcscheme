@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0F6072241BF8B2870088EDA4"
-               BuildableName = "Assignment_PTL.app"
-               BlueprintName = "Assignment_PTL"
+               BuildableName = "Tappit.app"
+               BlueprintName = "Tappit"
                ReferencedContainer = "container:Assignment_PTL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F6072241BF8B2870088EDA4"
-            BuildableName = "Assignment_PTL.app"
-            BlueprintName = "Assignment_PTL"
+            BuildableName = "Tappit.app"
+            BlueprintName = "Tappit"
             ReferencedContainer = "container:Assignment_PTL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F6072241BF8B2870088EDA4"
-            BuildableName = "Assignment_PTL.app"
-            BlueprintName = "Assignment_PTL"
+            BuildableName = "Tappit.app"
+            BlueprintName = "Tappit"
             ReferencedContainer = "container:Assignment_PTL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F6072241BF8B2870088EDA4"
-            BuildableName = "Assignment_PTL.app"
-            BlueprintName = "Assignment_PTL"
+            BuildableName = "Tappit.app"
+            BlueprintName = "Tappit"
             ReferencedContainer = "container:Assignment_PTL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

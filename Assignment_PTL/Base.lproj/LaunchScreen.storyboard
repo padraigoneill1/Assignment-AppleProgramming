@@ -13,11 +13,23 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleAspectFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Circle" translatesAutoresizingMaskIntoConstraints="NO" id="bFI-S0-i3a">
+                                <rect key="frame" x="0.0" y="191" width="600" height="228"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.99625005049389348" blue="0.080045942248503699" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bFI-S0-i3a" secondAttribute="bottom" constant="181" id="RMI-65-1P8"/>
+                            <constraint firstItem="bFI-S0-i3a" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="171" id="g4E-p5-aLp"/>
+                            <constraint firstAttribute="trailing" secondItem="bFI-S0-i3a" secondAttribute="trailing" id="vzA-MQ-sAF"/>
+                            <constraint firstItem="bFI-S0-i3a" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="zyX-RI-yHF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +37,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Circle" width="1000" height="1000"/>
+    </resources>
 </document>

@@ -12,6 +12,7 @@
 		0F4851971BF91685004B0EDC /* fail.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851961BF91685004B0EDC /* fail.mp3 */; };
 		0F4851991BF91DF4004B0EDC /* backgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */; };
 		0F48519B1BF9218C004B0EDC /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0F48519A1BF9218C004B0EDC /* win.wav */; };
+		0F5475B71C14FC3400379829 /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5475B61C14FC3400379829 /* Circle.png */; };
 		0F6072291BF8B2870088EDA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6072281BF8B2870088EDA4 /* AppDelegate.swift */; };
 		0F60722B1BF8B2870088EDA4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0F60722A1BF8B2870088EDA4 /* GameScene.sks */; };
 		0F60722D1BF8B2870088EDA4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F60722C1BF8B2870088EDA4 /* GameScene.swift */; };
@@ -30,7 +31,8 @@
 		0F4851961BF91685004B0EDC /* fail.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fail.mp3; sourceTree = "<group>"; };
 		0F4851981BF91DF4004B0EDC /* backgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backgroundMusic.wav; sourceTree = "<group>"; };
 		0F48519A1BF9218C004B0EDC /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
-		0F6072251BF8B2870088EDA4 /* Assignment_PTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_PTL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F5475B61C14FC3400379829 /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Circle.png; path = Assets.xcassets/Circle.imageset/Circle.png; sourceTree = "<group>"; };
+		0F6072251BF8B2870088EDA4 /* Tappit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tappit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6072281BF8B2870088EDA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F60722A1BF8B2870088EDA4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		0F60722C1BF8B2870088EDA4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 		0F6072261BF8B2870088EDA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0F6072251BF8B2870088EDA4 /* Assignment_PTL.app */,
+				0F6072251BF8B2870088EDA4 /* Tappit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +98,7 @@
 				0F60723E1BF8C5140088EDA4 /* CGFloatExtension.swift */,
 				0F60722E1BF8B2870088EDA4 /* GameViewController.swift */,
 				0F6072301BF8B2870088EDA4 /* Main.storyboard */,
+				0F5475B61C14FC3400379829 /* Circle.png */,
 				0F6072331BF8B2870088EDA4 /* Assets.xcassets */,
 				0F6072351BF8B2870088EDA4 /* LaunchScreen.storyboard */,
 				0F6072381BF8B2870088EDA4 /* Info.plist */,
@@ -106,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0F6072241BF8B2870088EDA4 /* Assignment_PTL */ = {
+		0F6072241BF8B2870088EDA4 /* Tappit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0F60723B1BF8B2870088EDA4 /* Build configuration list for PBXNativeTarget "Assignment_PTL" */;
+			buildConfigurationList = 0F60723B1BF8B2870088EDA4 /* Build configuration list for PBXNativeTarget "Tappit" */;
 			buildPhases = (
 				0F6072211BF8B2870088EDA4 /* Sources */,
 				0F6072221BF8B2870088EDA4 /* Frameworks */,
@@ -118,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = Assignment_PTL;
+			name = Tappit;
 			productName = Assignment_PTL;
-			productReference = 0F6072251BF8B2870088EDA4 /* Assignment_PTL.app */;
+			productReference = 0F6072251BF8B2870088EDA4 /* Tappit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,7 +154,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0F6072241BF8B2870088EDA4 /* Assignment_PTL */,
+				0F6072241BF8B2870088EDA4 /* Tappit */,
 			);
 		};
 /* End PBXProject section */
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F48519B1BF9218C004B0EDC /* win.wav in Resources */,
+				0F5475B71C14FC3400379829 /* Circle.png in Resources */,
 				0F60722B1BF8B2870088EDA4 /* GameScene.sks in Resources */,
 				0F4851971BF91685004B0EDC /* fail.mp3 in Resources */,
 				0F6072371BF8B2870088EDA4 /* LaunchScreen.storyboard in Resources */,
@@ -327,7 +331,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0F60723B1BF8B2870088EDA4 /* Build configuration list for PBXNativeTarget "Assignment_PTL" */ = {
+		0F60723B1BF8B2870088EDA4 /* Build configuration list for PBXNativeTarget "Tappit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0F60723C1BF8B2870088EDA4 /* Debug */,

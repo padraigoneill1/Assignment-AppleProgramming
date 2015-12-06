@@ -14,6 +14,8 @@ class GameScene: SKScene {
     var Person = SKSpriteNode()
     var Dot = SKSpriteNode()
     var MenuButton = SKSpriteNode()
+    var appName:SKLabelNode?
+
     
     var Path = UIBezierPath()
     
@@ -33,7 +35,7 @@ class GameScene: SKScene {
     
     
     //  Sound From https://www.freesound.org/people/ZvinbergsA/sounds/273143/
-    var ButtonAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("beep", ofType:"wav")!))
+  //  var ButtonAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("beep", ofType:"wav")!))
     
     //  Sound From https://www.freesound.org/people/mrmacross/sounds/186896/
     var FailAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fail", ofType:"mp3")!))
@@ -72,7 +74,7 @@ class GameScene: SKScene {
         self.addChild(Circle)
         
         Person = SKSpriteNode(imageNamed: "Person")
-        Person.size = CGSize(width: 40, height: 7)
+        Person.size = CGSize(width: 45, height: 9)
         Person.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 120)
         Person.zRotation = 3.14/2
         Person.zPosition = 2.0
@@ -92,6 +94,16 @@ class GameScene: SKScene {
         MenuButton.size = CGSize(width: 85, height:85)
         self.addChild(MenuButton)
         
+        appName = SKLabelNode(fontNamed:"MarkerFelt-Thin")
+        appName!.text = "Tappit!"
+        appName!.fontColor = SKColor.purpleColor()
+        appName!.fontSize = 120
+        appName!.horizontalAlignmentMode = .Center;
+        appName!.verticalAlignmentMode = .Center
+        appName!.position = CGPoint(x: CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)-260)
+        self.addChild(appName!)
+
+        
 }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -103,6 +115,8 @@ class GameScene: SKScene {
             let nodeAtTouch = self.nodeAtPoint(touch.locationInNode(self))
             if nodeAtTouch == MenuButton && gameStarted == false {
                 if let view = view {
+                    LevelLabel.removeFromSuperview()
+                    ButtonAudioPlayer.play()
                     let scene = MenuScene(fileNamed:"MenuScene")! as MenuScene
                     scene.scaleMode = SKSceneScaleMode.AspectFill
                     view.presentScene(scene)

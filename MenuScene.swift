@@ -13,6 +13,7 @@ import AVFoundation
 
 var playButton = SKSpriteNode()
 var musicSettings = SKSpriteNode()
+var resetHighScore = SKSpriteNode()
 var muteTexture = SKTexture(imageNamed: "MuteMusic")
 var playTexture = SKTexture(imageNamed: "PlayMusic")
 
@@ -21,9 +22,14 @@ var playTexture = SKTexture(imageNamed: "PlayMusic")
 //  Sound From https://www.freesound.org/people/joshuaempyre/sounds/251461/
 var BackgroundAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("backgroundMusic", ofType:"wav")!))
 
+//  Sound From https://www.freesound.org/people/ZvinbergsA/sounds/273143/
+var ButtonAudioPlayer = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("beep", ofType:"wav")!))
+
 class MenuScene: SKScene {
-       var playLabel :SKLabelNode?
-       weak var gameViewController : GameViewController?
+        var playLabel :SKLabelNode?
+        var resetScore :SKLabelNode?
+        var appName:SKLabelNode?
+        weak var gameViewController : GameViewController?
     
     override func didMoveToView(view: SKView) {
        
@@ -54,6 +60,31 @@ class MenuScene: SKScene {
         musicSettings.position = CGPoint(x:CGRectGetMidX(self.frame)*2-350, y:CGRectGetMidY(self.frame)*2-50)
         musicSettings.size = CGSize(width: 100, height:100)
         self.addChild(musicSettings)
+        
+        resetHighScore = SKSpriteNode(imageNamed: "resetHighScore")
+        resetHighScore.size = CGSize(width: 100, height: 100)
+        resetHighScore.position = CGPoint(x:CGRectGetMidX(self.frame)-150, y:CGRectGetMidY(self.frame)*2-50)
+        self.addChild(resetHighScore)
+        
+        
+        resetScore = SKLabelNode(fontNamed:"Arial")
+        resetScore!.text = "Reset Score"
+        resetScore!.fontColor = SKColor.blackColor()
+        resetScore!.fontSize = 30
+        resetScore!.horizontalAlignmentMode = .Center;
+        resetScore!.verticalAlignmentMode = .Center
+        resetScore!.position = CGPoint(x: CGRectGetMidX(self.frame)-125, y:CGRectGetMidY(self.frame)*2-130)
+        self.addChild(resetScore!)
+        
+        appName = SKLabelNode(fontNamed:"MarkerFelt-Thin")
+        appName!.text = "Tappit!"
+        appName!.fontColor = SKColor.purpleColor()
+        appName!.fontSize = 120
+        appName!.horizontalAlignmentMode = .Center;
+        appName!.verticalAlignmentMode = .Center
+        appName!.position = CGPoint(x: CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame)-260)
+        self.addChild(appName!)
+
 
 
         NSUserDefaults.standardUserDefaults().setBool(false, forKey:"Muted" )
@@ -69,39 +100,31 @@ class MenuScene: SKScene {
             let nodeAtTouch = self.nodeAtPoint(touch.locationInNode(self))
             if nodeAtTouch == playLabel{
                 if let view = view {
+                    ButtonAudioPlayer.play()
                     let scene = GameScene(fileNamed:"GameScene")! as GameScene
                     scene.scaleMode = SKSceneScaleMode.AspectFill
                     view.presentScene(scene)
                     }
                 }
-                else if nodeAtTouch == musicSettings{
+            else if nodeAtTouch == musicSettings{
                 if musicSettings.texture == playTexture{
                     musicSettings.texture = muteTexture
-                      NSUserDefaults.standardUserDefaults().setBool(true, forKey:"Muted" )
-                      BackgroundAudioPlayer.stop()
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey:"Muted" )
+                    BackgroundAudioPlayer.stop()
                 }
                 else{
                     musicSettings.texture = playTexture
                     NSUserDefaults.standardUserDefaults().setBool(false, forKey:"Muted" )
                     BackgroundAudioPlayer.play()
                     }
-                }
             }
-        }
-    }
-
-        /*
-    if let touch = touches.first as? UITouch {
-        let pos = touch.locationInNode(self)
-        let node = self.nodeAtPoint(pos)
-        
-        if node == playButton {
-            if let view = view {
-                let scene = GameScene(fileNamed:"GameScene") as GameScene
-                scene.scaleMode = SKSceneScaleMode.AspectFill
-                view.presentScene(scene)
+            else if nodeAtTouch == resetHighScore{
+                NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "HighLevel")
+                ButtonAudioPlayer.play()
+                resetScore!.text = "Score Reset!"
+                
             }
+            
         }
     }
 }
-*/
