@@ -1,4 +1,4 @@
-# Assignment_PopTheLock
+# Assignment_Tappit!
 
 A simple iOS game app written in Swift, using Pop the lock as inspiration.
 User taps the screen and tries to intersect their respective sprite with a dot on screen.
